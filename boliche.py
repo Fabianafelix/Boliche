@@ -26,9 +26,12 @@ while True:
     boliche (valor_pinos)
 
     escolha = input("\nEscolha o pino que deseja derrubar: ")
-
-    for pino in escolha:
-        posicao=valor_pinos[pino]
-        estrutura_pinos [posicao] = '_'
+    # Da forma que você não use o for, já que o usuário vai entrar um pino por vez:
+    posicao=valor_pinos[escolha]
+    estrutura_pinos [posicao] = '_'
         
     boliche (estrutura_pinos)
+    # E seu código não tem break, então o while True vai continuar para sempre, mesmo depois derrubar todos os pinos
+    # Pra evitar isso você pode fazer:
+    if "I" not in estrutura_pinos:
+        break
